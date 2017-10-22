@@ -37,7 +37,7 @@ public interface SeckillService {
      * 行为接口
      */
     /**
-     * 在秒杀开启时输出秒杀接口的地址，否则输出系统时间和秒杀时间(业务不相关)
+     * 在秒杀开启时输出秒杀接口的地址，否则输出系统时间和秒杀时间(业务不相关使用dto)
      * @param seckillId
      */
     Exposer exportSeckillUrl(long seckillId);
