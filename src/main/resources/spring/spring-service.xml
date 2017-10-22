@@ -13,6 +13,16 @@
     <!--扫描service包(包括子包)下所有使用注解的类型-->
     <context:component-scan base-package="org.seckill.service"/>
 
+    <!--配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--注入数据库连接池-->
+        <!-- 报错是因为idea在当前容器配置找不到dataSource，
+          其实已经在spring-dao.xml中配置了，
+          所以整体运行Spring时会找到-->
+        <property name="dataSource" ref="dataSource"/>
 
+        <!--配置基于注解的声明式事务,默认使用注解来管理事务行为-->
+        <tx:annotation-driven transaction-manager="transactionManager"/>
+    </bean>
 
 </beans>
